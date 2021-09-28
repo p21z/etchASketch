@@ -1,0 +1,15 @@
+.container {
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.item {
+    background-color: blue;
+    border: black 1px solid;
+    padding: -1px;
+}
