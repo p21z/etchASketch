@@ -5,45 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Etch-a-Sketch!</title>
 </head>
 <body>
+    <div class="content">
+        <div class="controls content-child">
+            <div style="margin-top: 1em">
+                <div class="title">Etch-a-Sketch!</div>
+                <p id="result"></p>
+                <input id="pick" type="range" min="1" max="50" value="25" step="" />
+            </div>
+
+            <input type="color" id="colorPick" value="#0075ff">
+
+            <input type="button" id="randomButton" value="Random">
+            <input type="button" id="resetButton" value="Reset">
+        </div>
+        <div class="container content-child" id="contain">
+        </div>
+    </div> 
+
     
-    <div class="container" id="contain">
-        <!-- <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div> -->
-    </div>
 
-<div style="margin-top: 1em">
-    <h2>Price</h2>
-    1<input id="price" type="range" min="1" max="50" value="" step="" />50
-</div>
-
-<p id="result"></p>
-<input type="color" id="colorPick">
 
 
 </body>

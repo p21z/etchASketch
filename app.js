@@ -1,7 +1,10 @@
 const container = document.querySelector('#contain');
 
-let p = document.getElementById("price"),
-    res = document.getElementById("result");
+let p = document.getElementById("pick"),
+    res = document.getElementById("result"),
+    stopRandomColor = 0;
+
+res.innerHTML = p.value;
 
 window.addEventListener('load', function(){
     iterationCount = 25;
@@ -33,7 +36,7 @@ newGrid = () => {
 }
 
 p.addEventListener("input", function() {
-    res.innerHTML = p.value;
+    res.innerHTML =  p.value;
     iterationCount = p.value;
     erase();
     
@@ -47,29 +50,37 @@ colorPick = document.querySelector('#colorPick');
 
 colorPick.addEventListener('input', () => {
     console.log(colorPick.value);
+    stopRandomColor = 1;
+
 })
 
+// enable randomizing button
+ randomButton = document.querySelector("#randomButton");
+ randomButton.addEventListener('click', () => {
+     stopRandomColor = 0;
+ })
+
 // random hex every hover event
-
 boxCount = () => {
-
     boxItems = document.querySelectorAll(".item");
     boxItems.forEach( item => {
             item.addEventListener('mouseenter', () => {
-                item.style.backgroundColor = "#fff";
+                if (stopRandomColor == 1){
+                    item.style.backgroundColor=colorPick.value;
+                    item.style.border = colorPick.value;
+                } else {
+                randomColor = (Math.random()*0xFFFFFF<<0).toString(16);
+                item.style.backgroundColor = "#"+randomColor;
+                item.style.border = colorPick.value;
+                }
+
             })
         }
-
     )
-
 }
 
-
 // random hex code every N seconds
-
 let colorRand = () => {
-
-    // randomColor = Math.floor(Math.random()*16777215).toString(16);
     randomColor = (Math.random()*0xFFFFFF<<0).toString(16);
     zeroes=""
     // randomColor = "989a1"
@@ -82,8 +93,26 @@ let colorRand = () => {
     }
     console.log(randomColor, " ", randomColor.length)
 }
-// colorRand();
-// setInterval(colorRand, 500);
+
+// reset size and bg-color STOPPED HERE!!!!!!!!
+resetButton=document.querySelector("#resetButton");
+resetButton.addEventListener('click', () => {
+    erase();
+    p.value=25;
+    iterationCount = p.value;
+    res.innerHTML = p.value;
+    boxItems = document.querySelectorAll(".item");
+    boxItems.forEach( item => {
+        item.style.backgroundColor=colorPick.value;
+        item.style.border = colorPick.value;
+    });
+    colorPick.value="#0075ff";
+    populate();
+    newGrid();
+    boxCount();
+})
+
+
 
 
 
